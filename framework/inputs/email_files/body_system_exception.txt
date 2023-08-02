@@ -1,0 +1,14 @@
+<!-- Spanish version -->
+El proceso <b>{0}</b> ha presentado errores durante la ejecución.
+<br> 
+<br> <b>Estado actual</b>: {1} 
+<br> <b>Fuente</b>: {2} 
+<br> <b>Mensaje</b>: {3}
+
+<!-- English version
+The process <b>{0}</b> has presented errors during the execution.
+<br> 
+<br> <b>Current state</b>: {1} 
+<br> <b>Source</b>: {2} 
+<br> <b>Message</b>: {3}
+ -->

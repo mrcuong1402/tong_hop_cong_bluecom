@@ -1,0 +1,20 @@
+## General ignores
+
+# Folders
+**/process_data*
+**/process_logs
+**/exceptions
+**/out
+**/.local
+**/.project
+
+# Files
+*.png
+*.jpeg
+*.pdf
+*.xls
+
+
+
+
+

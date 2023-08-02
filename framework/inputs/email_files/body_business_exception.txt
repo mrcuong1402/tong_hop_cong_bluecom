@@ -1,0 +1,8 @@
+<!-- Spanish version -->
+Una excepción de regla de negocio fue encontrada durante la ejecución del proceso <b>{0}</b>
+<br> La excepción encontrada fue: <b>{1}</b>
+
+<!-- English version 
+A business rule exception was encountered during the execution of process <b>{0}</b>
+<br> The exception was: <b>{1}</b>
+-->

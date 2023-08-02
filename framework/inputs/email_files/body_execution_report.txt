@@ -1,0 +1,16 @@
+<!-- Spanish version -->
+El proceso <b>{0}</b> ha terminado correctamente.
+<br> El resumen de la ejecución es:
+<br>
+<br> {1}
+<br> 
+<br> Favor de revisar archivo(s) adjunto(s) para mayor información. 
+
+<!-- English version
+Process <b>{0}</b> has ended successfully.
+<br> The execution report is:
+<br>
+<br> {1}
+<br> 
+<br> Please see attached file(s) for more details.
+ -->

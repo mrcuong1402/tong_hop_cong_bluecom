@@ -1,0 +1,559 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="p001_send_execution_report" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="_boolSendToClient" Type="InArgument(x:Boolean)" />
+  </x:Members>
+  <this:p001_send_execution_report._dicConfig>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:p001_send_execution_report._dicConfig>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1083,2456</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>send_execution_report_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="*** DESCRIPTION ***&#xA;-  Send execution report using config parameters.&#xA;&#xA;***  INPUT FILES *** &#xA;- worktray.xlsx&#xA;*** OUTPUT FILES *** &#xA;- strExeReportFile&#xA;&#xA;*** META ***&#xA;UiPath main dependencies: System: 2022.10.4 ;UiPath extra dependencies:  Mail: 1.18.1&#xA;Created on:    2023-01-01 ; sisua.developer&#xA;Modified on:  2023-0X-XX ; sisua.developer" DisplayName="p001_send_execution_report" sap:VirtualizedContainerService.HintSize="555,2391" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strWorktray" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtaWorktray" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtaExeReport" />
+      <Variable x:TypeArguments="x:String" Name="strHtmlExeReport" />
+      <Variable x:TypeArguments="x:String" Name="strSummaryWorksheet" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtaWtSummary" />
+      <Variable x:TypeArguments="x:String" Name="strExeReportFile" />
+      <Variable x:TypeArguments="x:String" Name="strTransformColsExeReport" />
+      <Variable x:TypeArguments="x:String" Name="strExeReportTemplate" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="493,61" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="assign_test_arguments" sap:VirtualizedContainerService.HintSize="242,234" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="log_using_test_arguments" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;USING TEST ARGUMENTS!&quot;]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_utils_read_config_dict_v3.1 workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="wfs\_fmw\utils_read_config_dict.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="_dicConfiguration">[_dicConfig]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="_strConfigFile">configuration.xlsx</InArgument>
+              <InArgument x:TypeArguments="s:String[]" x:Key="_strarrConfigSheets">[{"base"}]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:LogMessage DisplayName="log_starting_wf" sap:VirtualizedContainerService.HintSize="493,61" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;--- Sending execution report ---&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:MultipleAssign DisplayName="assign_wf_arguments" sap:VirtualizedContainerService.HintSize="493,203" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strWorktray]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[_dicConfig("WORKTRAY_FILE").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strExeReportTemplate]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[_dicConfig("EXECUTION_REPORT_TEMPLATE").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_38">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strExeReportFile]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[String.Format(_dicConfig("EXECUTION_REPORT_FILE").ToString, Now.ToString("yyyyMMdd"))]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_39">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strTransformColsExeReport]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[_dicConfig("TRANSFORM_DTA_COLS_EXE_REPORT").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:ReadRange AddHeaders="True" DataTable="[dtaWorktray]" DisplayName="read_worktray" sap:VirtualizedContainerService.HintSize="493,97" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="base" WorkbookPath="[strWorktray]">
+      <ui:ReadRange.Range>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" Value="" />
+        </InArgument>
+      </ui:ReadRange.Range>
+    </ui:ReadRange>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_utils_transform_dta_columns workflow" sap:VirtualizedContainerService.HintSize="493,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="wfs\_utils\utils_transform_dta_columns.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="_strTransformColsFile">[strTransformColsExeReport]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="_dtaBase">[dtaWorktray]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[strExeReportFile]" DisplayName="copy_exe_report_template_to_exe_report_path" sap:VirtualizedContainerService.HintSize="493,61" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[strExeReportTemplate]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CopyFile>
+    <ui:WriteRange AddHeaders="True" DataTable="[dtaWorktray]" DisplayName="write_execution_report" sap:VirtualizedContainerService.HintSize="493,125" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="base" StartingCell="A1" WorkbookPath="[strExeReportFile]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="493,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="493,369" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="assign_wf_arguments" sap:VirtualizedContainerService.HintSize="431,110" sap2010:WorkflowViewState.IdRef="MultipleAssign_16">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[strSummaryWorksheet]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[_dicConfig("WORKTRAY_SUMMARY_WORKSHEET").ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:ReadRange AddHeaders="True" DataTable="[dtaWtSummary]" DisplayName="read_wt_summary_worksheet" sap:VirtualizedContainerService.HintSize="431,97" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[strSummaryWorksheet]" WorkbookPath="[strWorktray]">
+            <ui:ReadRange.Range>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </ui:ReadRange.Range>
+          </ui:ReadRange>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <Sequence DisplayName="build_exe_report" sap:VirtualizedContainerService.HintSize="493,90" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="strHeaderBkgColor" />
+        <Variable x:TypeArguments="x:String" Name="strHeaderFontColor" />
+        <Variable x:TypeArguments="x:String" Name="strStripesColor" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="build_summary_execution_report" sap:VirtualizedContainerService.HintSize="431,363" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:BuildDataTable DataTable="[dtaExeReport]" DisplayName="build_dtaExeReport" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;PARAMETRO&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;VALOR&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+        <Sequence DisplayName="row_parameter_1" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="strParameter" />
+            <Variable x:TypeArguments="x:String" Name="strValue" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="assign_parameter_and_value" sap:VirtualizedContainerService.HintSize="431,131" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[strParameter]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Parameter 1</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[strValue]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[dtaWorktray.Rows.Count.ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{strParameter, strValue}]" DataTable="[dtaExeReport]" DisplayName="add_row_to_dtaExeReport" sap:VirtualizedContainerService.HintSize="431,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+        </Sequence>
+        <Sequence DisplayName="row_parameter_2" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="strParameter" />
+            <Variable x:TypeArguments="x:String" Name="strValue" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="assign_parameter_and_value" sap:VirtualizedContainerService.HintSize="431,131" sap2010:WorkflowViewState.IdRef="MultipleAssign_15">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[strParameter]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Parameter 2</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[strValue]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[dtaWorktray.Rows.Count.ToString]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{strParameter, strValue}]" DataTable="[dtaExeReport]" DisplayName="add_row_to_dtaExeReport" sap:VirtualizedContainerService.HintSize="431,185" sap2010:WorkflowViewState.IdRef="AddDataRow_13" />
+        </Sequence>
+      </Sequence>
+      <ui:MultipleAssign DisplayName="assign_html_table_colors" sap:VirtualizedContainerService.HintSize="431,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_18">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_50">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strHeaderBkgColor]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[_dicConfig("HTML_TABLE_HEADER_BKG_COLOR").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_51">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strHeaderFontColor]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[_dicConfig("HTML_TABLE_HEADER_FONT_COLOR").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_52">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strStripesColor]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[_dicConfig("HTML_TABLE_STRIPES_COLOR").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_utils_dta_to_html workflow" sap:VirtualizedContainerService.HintSize="431,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="wfs\_utils\utils_dta_to_html.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="_dtaTable">[dtaExeReport]</InArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="_strHtmlTable">[strHtmlExeReport]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strHeaderColor">[strHeaderBkgColor]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strHeaderFontColor">[strHeaderFontColor]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strStripesColor">[strStripesColor]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strBorderColor">#000000</InArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="_boolColBorders">False</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="_intTableWidth">75</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strFont">Helvetica</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strFirstColAlignment">left</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strColAlignnment">center</InArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="_boolCenterTable">False</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
+    <Sequence DisplayName="send_email_exe_report" sap:VirtualizedContainerService.HintSize="493,735" sap2010:WorkflowViewState.IdRef="Sequence_18">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="strSubject" />
+        <Variable x:TypeArguments="x:String" Name="strBodyFile" />
+        <Variable x:TypeArguments="s:String[]" Name="arrAttachments" />
+        <Variable x:TypeArguments="s:String[]" Name="arrRecipients" />
+        <Variable x:TypeArguments="s:String[]" Name="arrBodyFields" />
+        <Variable x:TypeArguments="s:String[]" Name="arrWrapperFields" />
+        <Variable x:TypeArguments="s:String[]" Name="arrRecipientsCC" />
+        <Variable x:TypeArguments="x:String" Name="strEmailCreds" />
+        <Variable x:TypeArguments="x:String" Name="strRecipientsFile" />
+        <Variable x:TypeArguments="x:String" Name="strRobotName" />
+        <Variable x:TypeArguments="x:Boolean" Name="boolSendEmail" />
+        <Variable x:TypeArguments="x:Int32" Name="intEnv" />
+        <Variable x:TypeArguments="x:String" Name="strEmailWrapper" />
+        <Variable x:TypeArguments="x:Int32" Name="intTimeoutSendEmail" />
+        <Variable x:TypeArguments="x:String" Name="strRecipientsCol" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="assign_email_parameters_exe_report" sap:VirtualizedContainerService.HintSize="431,451" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strSubject]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[String.Format(_dicConfig("EMAIL_SUBJECT_REPORT").ToString, _dicConfig("PROCESS_CODE").ToString.ToUpper)]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strBodyFile]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[_dicConfig("BODY_EXECUTION_REPORT").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="s:String[]">[arrBodyFields]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="s:String[]">[{_dicConfig("PROCESS_NAME_ID").ToString, strHtmlExeReport}]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="s:String[]">[arrWrapperFields]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="s:String[]">[{_dicConfig("EMAIL_CLIENT_LOGO_URL").ToString, _dicConfig("EMAIL_ROBOT_SIGNATURE_URL").ToString, _dicConfig("EMAIL_ROBOT_HAPPY_URL").ToString}]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_53">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strRecipientsCol]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">execution_report</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="s:String[]">[arrRecipients]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="s:String[]">[New String(){}]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="s:String[]">[arrRecipientsCC]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="s:String[]">[New String(){}]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="s:String[]">[arrAttachments]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="s:String[]">[{strExeReportFile}]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_55">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strRobotName]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[_dicConfig("ROBOT_NAME").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_56">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strEmailWrapper]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[_dicConfig("EMAIL_WRAPPER_MAIN").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_54">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Boolean">[boolSendEmail]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_57">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:Int32">[intTimeoutSendEmail]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:Int32">45</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:MultipleAssign>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="inv_utils_send_email" sap:VirtualizedContainerService.HintSize="431,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="wfs/_utils/utils_send_email.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="_strSubject">[strSubject]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="_arrBodyFields">[arrBodyFields]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="_arrRecipients">[arrRecipients]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strSenderName">[strRobotName]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="_arrAttachmentsFiles">[arrAttachments]</InArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="_boolSendEmail">[boolSendEmail]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strEmailWrapperFile">[strEmailWrapper]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strBodyMsgFile">[strBodyFile]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="_arrExtraWrapperFields">[arrWrapperFields]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="_intMaxTimeToSendEmail">[intTimeoutSendEmail]</InArgument>
+          <InArgument x:TypeArguments="s:String[]" x:Key="_arrRecipientsCC">[arrRecipientsCC]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="_strRecipientsColumn">[strRecipientsCol]</InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="_dicConfig">[_dicConfig]</InArgument>
+          <InArgument x:TypeArguments="x:Boolean" x:Key="_boolSendToClient">[_boolSendToClient]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
+    <ui:LogMessage DisplayName="log_wf_finished" sap:VirtualizedContainerService.HintSize="493,61" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Send execution report finished&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>

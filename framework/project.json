@@ -1,0 +1,76 @@
+{
+  "name": "tong_hop_cong_Windows",
+  "projectId": "680342fd-7ae0-492b-95ea-e76c05f95285",
+  "description": "",
+  "main": "Main.xaml",
+  "dependencies": {
+    "GERT.Telegram.Activities": "[1.2.0]",
+    "Newtonsoft.Json": "[13.0.1]",
+    "UiPath.Credentials.Activities": "[2.0.0]",
+    "UiPath.Excel.Activities": "[2.21.0-preview]",
+    "UiPath.Mail.Activities": "[1.20.2]",
+    "UiPath.MicrosoftOffice365.Activities": "[2.2.6]",
+    "UiPath.System.Activities": "[23.6.0-preview]",
+    "UiPath.UIAutomation.Activities": "[23.6.2-preview]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "22.10.3",
+  "projectVersion": "0.1.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "4f863ec4-192b-4350-8391-da1dbb4ec925",
+        "testCaseType": "TestCase",
+        "fileName": "wfs\\_test\\test_wf.xaml"
+      }
+    ],
+    "modernBehavior": false
+  },
+  "arguments": {
+    "input": [],
+    "output": []
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "main.xaml",
+      "uniqueId": "a7f0bbb0-55d6-4258-b512-b0246b50ce94",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}

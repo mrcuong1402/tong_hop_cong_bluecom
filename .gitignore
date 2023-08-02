@@ -1,0 +1,19 @@
+## General ignores
+
+# Folders
+**/process_data*
+**/process_logs
+**/exceptions
+**/out
+
+# Files
+*.png
+*.jpeg
+*.pdf
+*.xls
+
+
+
+
+
+framework/.local/AllDependencies.json
