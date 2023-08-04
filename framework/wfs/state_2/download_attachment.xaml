@@ -1,12 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="download_attachment" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umao="clr-namespace:UiPath.Mail.Activities.Outlook;assembly=UiPath.Mail.Activities" xmlns:umat="clr-namespace:UiPath.Mail.Activities.Triggers;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="_dicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="_fileAttachment" Type="InArgument(x:String)" />
+    <x:Property Name="_fileAttachment" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1142,1839</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1142,1323</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>download_attachment_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -111,7 +111,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="download_attachment" sap:VirtualizedContainerService.HintSize="610,1774" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="download_attachment" sap:VirtualizedContainerService.HintSize="610,1258" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strHanetAccount" />
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="email" />
@@ -122,10 +122,10 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="548,494" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[_dicConfig is Nothing]" DisplayName="if_test_wf_assign_args" sap:VirtualizedContainerService.HintSize="548,52" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -169,6 +169,14 @@
         </Sequence>
       </If.Else>
     </If>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="548,52" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;wait email comming&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
     <ui:GetRobotCredential Password="{x:Null}" TimeoutMS="{x:Null}" AssetName="[_dicConfig(&quot;HANET_ACCOUNT&quot;).ToString]" CacheStrategy="None" DisplayName="get_credential" FolderPath="[_dicConfig(&quot;ORCHES_FOLDER&quot;).ToString]" sap:VirtualizedContainerService.HintSize="548,52" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Username="[strHanetAccount]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -177,13 +185,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:GetRobotCredential>
-    <ui:TriggerScope DisplayName="Trigger Scope" sap:VirtualizedContainerService.HintSize="548,1037" sap2010:WorkflowViewState.IdRef="TriggerScope_1" SchedulingMode="OneTime">
+    <ui:TriggerScope DisplayName="Trigger Scope" sap:VirtualizedContainerService.HintSize="548,871" sap2010:WorkflowViewState.IdRef="TriggerScope_1" SchedulingMode="OneTime">
       <ui:TriggerScope.Action>
         <ActivityAction x:TypeArguments="umat:MailEventInfo">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="umat:MailEventInfo" Name="args" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="496,571" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence sap:VirtualizedContainerService.HintSize="496,570" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -191,7 +199,7 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:GetOutlookMailMessages FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[strHanetAccount]" DisplayName="get_outlook_mail_messages" Filter="[&quot;@SQL=&quot;&quot;urn:schemas:httpmail:subject&quot;&quot; like '%Hanet Camera%'&quot;]" GetAttachements="False" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[email]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Top="1" />
             <ui:SaveMailAttachments Attachments="[attachments]" DisplayName="save_file_attach" ExcludeInlineAttachments="False" FolderPath="[_dicConfig(&quot;FOLDER_ATTACH_DOWNLOAD&quot;).ToString]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[email(0)]" OverwriteExisting="False" />
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[_fileAttachment]</OutArgument>
               </Assign.To>
@@ -212,10 +220,10 @@
       </ui:TriggerScope.Action>
       <ui:TriggerScope.Triggers>
         <scg:List x:TypeArguments="Activity" Capacity="4">
-          <umao:OutlookMailMessagesTrigger BodyFilter="{x:Null}" Cc="{x:Null}" To="{x:Null}" Account="[strHanetAccount]" BodyIsBuilderTabModified="False" BodyRegexOption="None" DisplayName="Outlook Mail Message Trigger" Enabled="True" From="panadolextra1402@gmail.com;no-reply@hanet.com" sap:VirtualizedContainerService.HintSize="512,238" sap2010:WorkflowViewState.IdRef="OutlookMailMessagesTrigger_1" Importance="Any" MailFolder="Inbox" MarkAsRead="False" SchedulingMode="Sequential" SubjectBuilderPattern="\[Hanet Camera\] Bảng chấm công" SubjectFilter="\[Hanet Camera\] Bảng chấm công" SubjectIsBuilderTabModified="True" SubjectModel="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\[Hanet Camera\\] Bảng chấm công&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" SubjectRegexOption="IgnoreCase" TriggerId="7a91c8d1-a393-4c97-bea2-8a6c07fd2058" WhenOutlookIsClosed="Open">
+          <umao:OutlookMailMessagesTrigger BodyFilter="{x:Null}" Cc="{x:Null}" To="{x:Null}" Account="[strHanetAccount]" BodyIsBuilderTabModified="False" BodyRegexOption="None" DisplayName="Outlook Mail Message Trigger" Enabled="True" From="panadolextra1402@gmail.com;no-reply@hanet.com" sap:VirtualizedContainerService.HintSize="512,73" sap2010:WorkflowViewState.IdRef="OutlookMailMessagesTrigger_1" Importance="Any" MailFolder="Inbox" MarkAsRead="False" SchedulingMode="Sequential" SubjectBuilderPattern="\[Hanet Camera\] Bảng chấm công" SubjectFilter="\[Hanet Camera\] Bảng chấm công" SubjectIsBuilderTabModified="True" SubjectModel="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;\\[Hanet Camera\\] Bảng chấm công&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" SubjectRegexOption="IgnoreCase" TriggerId="7a91c8d1-a393-4c97-bea2-8a6c07fd2058" WhenOutlookIsClosed="Open">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
